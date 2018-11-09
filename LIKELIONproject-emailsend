@@ -1,0 +1,20 @@
+<div class = "container">
+    
+    <h1>Successfully Sended Your Email</h1>
+    
+    <h2>You wrote Email to</h2>
+    <%=@EmailAddress%>
+    
+    <h2>Your Email Title is</h2>
+    <%=@EmailTitle%>
+    
+    <h2>Your Email Content is</h2>
+    <%=@EmailContent%>
+    
+    <div>
+    <button type="submit" class="btn btn-default">
+    <a href = "/sending">Go to the sending page</a> 
+    </button>
+    </div>
+    
+</div>
