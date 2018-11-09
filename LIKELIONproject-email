@@ -1,0 +1,28 @@
+require 'mailgun'
+
+class EmailhwController < ApplicationController
+    
+    def sending
+    end
+    
+    def checking
+        @EmailAddress = params[:emailaddress]
+        @EmailContent = params[:content]
+        @EmailTitle = params[:title]
+        
+        mg_client = Mailgun::Client.new("key-564c38cb53007dddae403b320cbacf47")
+
+        message_params =  {
+                   from: 'whdbsdud13@gmail.com',
+                   to:   @EmailAddress,
+                   subject: @EmailTitle,
+                   text:    @EmailContent
+                          }
+
+        result = mg_client.send_message('sandbox44b2ed297c16411dbeeeb70f673f6a14.mailgun.org', message_params).to_h!
+
+        message_id = result['id']   
+        message = result['message']
+    end
+    
+end
